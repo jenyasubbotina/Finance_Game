@@ -1,4 +1,4 @@
-package bank.hackaton.UI
+package bank.hackaton.ui.auth
 
 import android.app.Activity
 
@@ -11,12 +11,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import bank.hackaton.R
-import bank.hackaton.ui.activity.MainActivity
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.datepicker.MaterialTextInputPicker
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 // TODO: Rename parameter arguments, choose names that match
@@ -29,6 +29,8 @@ private const val ARG_PARAM2 = "param2"
  * Use the [RegisterFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+
 class RegisterFragment : Fragment() {
 
 
@@ -36,7 +38,8 @@ class RegisterFragment : Fragment() {
     private lateinit var registerButton: MaterialButton
     private lateinit var loginText: TextInputEditText
     private lateinit var passwordText: TextInputEditText
-
+    private lateinit var nameText: TextInputEditText
+    private lateinit var db: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,45 +47,54 @@ class RegisterFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_register, container, false)
         initViews(root)
-        if (mAuth.currentUser != null) {
-            toMain()
-        } else {
-            registerButton.setOnClickListener {
-                val name = loginText.text.toString()
-                val password = passwordText.text.toString()
-                Log.d("login:", name)
-                Log.d("password:", password)
-                if (name == "" && password == "") {
-                    loginText.error = "You haven't filled login"
-                    passwordText.error = "You haven't filled text"
-                } else if (name == "") {
-                    loginText.error = "You haven't filled login"
-                } else if (password == "") {
-                    passwordText.error = "You haven't filled text"
-                } else {
-                    mAuth.createUserWithEmailAndPassword(name, password)
-                        .addOnCompleteListener(activity as Activity)
-                        { task ->
-                            if (task.isSuccessful) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d("Logged", "signInWithEmail:success")
-                                val user = mAuth.currentUser
-                                Toast.makeText(
-                                    context,
-                                    "You authorized successfully!",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                toMain()
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w("Logged", "signInWithEmail:failure", task.exception)
-                                Toast.makeText(
-                                    context, "Something went wrong try again",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
+
+        registerButton.setOnClickListener {
+            val name = loginText.text.toString()
+            val password = passwordText.text.toString()
+            var personName = nameText.text.toString()
+            Log.d("login:", name)
+            Log.d("password:", password)
+            Log.d("name:", personName)
+            if (personName == "")
+                personName = "Незнакомец"
+            if (name == "" && password == "") {
+                loginText.error = getString(R.string.error_login)
+                passwordText.error = getString(R.string.error_password)
+            } else if (name == "") {
+                loginText.error = getString(R.string.error_login)
+            } else if (password == "") {
+                passwordText.error = getString(R.string.error_password)
+            } else {
+                mAuth.createUserWithEmailAndPassword(name, password)
+                    .addOnCompleteListener(activity as Activity)
+                    { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("Logged", "signInWithEmail:success")
+                            val user = mAuth.currentUser
+                            Log.d("email:", user!!.email.toString())
+                            db.child(name.replace(".", ""))
+                                .setValue(personName).addOnSuccessListener {
+                                    Log.d("success: ", "inserted")
+                                }.addOnFailureListener {
+                                    Log.d("failed: ", it.message!!)
+                                }
+                            Toast.makeText(
+                                context,
+                                "Вы успешно зарегистрировались!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            toMain()
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("Logged", "signInWithEmail:failure", task.exception)
+                            Toast.makeText(
+                                context,
+                                "Что-то пошло не так, возможно вы ввели некорректные данные",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
-                }
+                    }
             }
         }
         return root
@@ -92,6 +104,8 @@ class RegisterFragment : Fragment() {
         mAuth = Firebase.auth
         registerButton = root.findViewById(R.id.register_button)
         passwordText = root.findViewById(R.id.password_login)
+        nameText = root.findViewById(R.id.name_person_login)
+        db = Firebase.database.reference
         loginText = root.findViewById(R.id.username_login)
     }
 
