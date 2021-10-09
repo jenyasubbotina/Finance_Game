@@ -63,11 +63,11 @@ class LoginFragment : Fragment() {
                             db.child(path).child(name.replace(".", "")).get().addOnSuccessListener {
                                 Log.i("firebase", "Got value ${it.value}")
                                 personName = it.value.toString()
-                                sp.edit().putString(PersistentStorage.NAME, personName).apply()
                             }.addOnFailureListener {
                                 Log.e("firebase", "Error getting data", it)
                             }
                             Log.d("got name: ", personName)
+                            sp.edit().putString(PersistentStorage.NAME, personName).apply()
                             toMain()
                         } else {
 

@@ -4,7 +4,7 @@
     <string name="gallows_online"> Виселица онлайн </string>
     <string name="crossword"> Кроссворд </string>
     <string name="lets_play"> Давай поиграем! </string>
-    <string name="what_to_do"> Чем займемся, ?</string>
+    <string name="what_to_do"> Чем займемся, %1$s?</string>
     <string name="games"> Игры </string>
     <string name="statistic"> Статистика </string>
     <string name="quest"> Квест </string>

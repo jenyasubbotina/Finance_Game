@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val name = sp.getString(PersistentStorage.NAME, "Незнакомец")
         val s = getString(R.string.what_to_do)
         Log.d("string: ", s)
-        textGreetings.text = s.substring(0, s.lastIndex) + name + "?"
+        textGreetings.text = getString(R.string.what_to_do, name)
     }
 
     private fun initViews(){
