@@ -4,5 +4,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+
+    <style name = "MaterialTextStyle">
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="fontFamily">@font/roboto</item>
     </style>
 </resources>
