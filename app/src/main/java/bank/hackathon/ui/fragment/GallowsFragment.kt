@@ -1,11 +1,11 @@
-package bank.hackaton.ui.fragment
+package bank.hackathon.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import bank.hackaton.R
+import bank.hackathon.R
 
 class GallowsFragment : Fragment() {
 

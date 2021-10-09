@@ -1,4 +1,4 @@
-package bank.hackaton.ui.fragment
+package bank.hackathon.ui.fragment
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -17,7 +17,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.transition.Fade
 import androidx.transition.Transition
 import androidx.transition.TransitionManager
-import bank.hackaton.R
+import bank.hackathon.R
 
 
 class MainFragment : Fragment() {
@@ -27,6 +27,11 @@ class MainFragment : Fragment() {
     lateinit var crosswordImageView: ImageView
     lateinit var gallowsImageView: ImageView
     lateinit var questImageView: ImageView
+    lateinit var analysisImageView: ImageView
+    lateinit var analyticsImageView: ImageView
+    lateinit var applicationImageView: ImageView
+    var duration = 600L
+    var offset = 300L
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,11 +43,14 @@ class MainFragment : Fragment() {
         crosswordImageView = v.findViewById(R.id.imageview_crossword)
         gallowsImageView = v.findViewById(R.id.imageview_gallows)
         questImageView = v.findViewById(R.id.imageview_quest)
+        analysisImageView = v.findViewById(R.id.imageview_analyse)
+        analyticsImageView = v.findViewById(R.id.imageview_dashboard)
+        applicationImageView = v.findViewById(R.id.imageview_application)
 
         cardViewGames = v.findViewById(R.id.cardview_games)
 
         cardViewGames.setOnClickListener {
-            navController.navigate(MainFragmentDirections.actionMainFragmentToOnlineGameFragment())
+            navController.navigate(R.id.onlineGameFragment)
         }
 
         v.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
@@ -63,15 +71,18 @@ class MainFragment : Fragment() {
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     transitionAnimation(container!!, crosswordImageView)
-                }, 300)
+                }, offset)
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     transitionAnimation(container!!, gallowsImageView)
-                }, 900)
+                    transitionAnimation(container, analysisImageView)
+                }, offset + duration)
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     transitionAnimation(container!!, questImageView)
-                }, 1500)
+                    transitionAnimation(container, analyticsImageView)
+                    transitionAnimation(container, applicationImageView)
+                }, offset + duration * 2)
             }
         })
 
@@ -80,7 +91,7 @@ class MainFragment : Fragment() {
 
     fun transitionAnimation(parent: ViewGroup, view: View) {
         val transition: Transition = Fade()
-        transition.setDuration(600)
+        transition.setDuration(duration)
         transition.addTarget(view)
 
         TransitionManager.beginDelayedTransition(parent, transition)

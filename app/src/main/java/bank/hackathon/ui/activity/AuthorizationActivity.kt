@@ -1,4 +1,4 @@
-package bank.hackaton.ui.auth
+package bank.hackathon.ui.activity
 
 
 import android.graphics.Color
@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import bank.hackaton.R
+import bank.hackathon.R
+import bank.hackathon.ui.fragment.LoginFragment
+import bank.hackathon.ui.fragment.RegisterFragment
 
 
 private const val TOTAL = 2
@@ -22,8 +24,6 @@ class AuthorizationActivity : FragmentActivity() {
         val pagerAdapter = ScreenSlidePagerAdapter(this)
         viewPager2.adapter = pagerAdapter
     }
-
-
 
     private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 

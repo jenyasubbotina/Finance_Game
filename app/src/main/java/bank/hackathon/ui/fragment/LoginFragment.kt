@@ -1,9 +1,7 @@
-package bank.hackaton.ui.auth
+package bank.hackathon.ui.fragment
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,9 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import bank.hackaton.R
-import bank.hackaton.ui.activity.MainActivity
-import bank.hackaton.ui.activity.PersistentStorage
+import bank.hackathon.R
+import bank.hackathon.ui.activity.MainActivity
+import bank.hackathon.utils.SessionManager
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -23,19 +21,17 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 const val path = "table"
-
 class LoginFragment : Fragment() {
     private lateinit var loginButton: MaterialButton
     private lateinit var loginText: TextInputEditText
     private lateinit var passwordText: TextInputEditText
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var sp: SharedPreferences
+    private lateinit var sm: SessionManager
     private lateinit var db: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val root = inflater.inflate(R.layout.fragment_login, container, false)
         initViews(root)
         loginButton.setOnClickListener {
@@ -63,7 +59,7 @@ class LoginFragment : Fragment() {
                             db.child(path).child(name.replace(".", "")).get().addOnSuccessListener {
                                 Log.i("firebase", "Got value ${it.value}")
                                 personName = it.value.toString()
-                                sp.edit().putString(PersistentStorage.NAME, personName).apply()
+                                sm.saveUsername(personName)
                             }.addOnFailureListener {
                                 Log.e("firebase", "Error getting data", it)
                             }
@@ -97,10 +93,7 @@ class LoginFragment : Fragment() {
         loginButton = root.findViewById(R.id.login_button)
         passwordText = root.findViewById(R.id.password_login)
         loginText = root.findViewById(R.id.username_login)
-        sp = requireContext().getSharedPreferences(
-            PersistentStorage.PERSISTENT_STORAGE_NAME,
-            Context.MODE_PRIVATE
-        )
+        sm = SessionManager(requireContext())
     }
 
 }

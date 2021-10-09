@@ -1,22 +1,12 @@
-package bank.hackaton.ui.activity
+package bank.hackathon.ui.activity
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import bank.hackaton.ui.auth.AuthorizationActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import android.R
-import android.animation.ValueAnimator
-import android.animation.ValueAnimator.AnimatorUpdateListener
-
-
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 class SplashActivity : AppCompatActivity() {
@@ -24,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(bank.hackaton.R.layout.activity_splash)
+        setContentView(bank.hackathon.R.layout.activity_splash)
         window.statusBarColor = Color.WHITE
         mAuth = Firebase.auth
         when(mAuth.currentUser){

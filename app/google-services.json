@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "693726160162",
-    "project_id": "finance-game-8791f",
-    "storage_bucket": "finance-game-8791f.appspot.com"
+    "project_number": "1030399296655",
+    "project_id": "finance-aac89",
+    "storage_bucket": "finance-aac89.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:693726160162:android:6f68d13cd99e2df037717b",
+        "mobilesdk_app_id": "1:1030399296655:android:5cd2f48b29eea6c4c59cfa",
         "android_client_info": {
-          "package_name": "bank.hackaton"
+          "package_name": "bank.hackathon"
         }
       },
       "oauth_client": [
         {
-          "client_id": "693726160162-t4bqle1o6hrvtkchvvv828qr6c6v6ph7.apps.googleusercontent.com",
+          "client_id": "1030399296655-vj78ra0uffs51d3eqjqeis6ohvvcoamr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD1loXj9DuL6hTEuZc4LCfaBCwcAFn6DT8"
+          "current_key": "AIzaSyAAQBKW3KaBZcIwPXckTSU1iQZ2ZbuQfgY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "693726160162-t4bqle1o6hrvtkchvvv828qr6c6v6ph7.apps.googleusercontent.com",
+              "client_id": "1030399296655-vj78ra0uffs51d3eqjqeis6ohvvcoamr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

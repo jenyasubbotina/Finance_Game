@@ -1,4 +1,4 @@
-package bank.hackaton.utils
+package bank.hackathon.utils
 
 import android.content.Context
 import android.view.GestureDetector

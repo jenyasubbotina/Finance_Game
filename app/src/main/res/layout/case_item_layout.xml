@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview_gallow"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/m_margin"
     android:elevation="@dimen/standart_corners"
     app:cardBackgroundColor="@color/white"
@@ -37,23 +37,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/s_margin"
             android:fontFamily="@font/roboto_light"
+            android:scrollbars="vertical"
             android:text="@string/gallows_online"
             android:textColor="@color/black"
-            android:textSize="@dimen/h1"
+            android:textSize="@dimen/h2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_name" />
-
-        <ImageView
-            android:id="@+id/imageview_case"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerInside"
-            android:src="@drawable/gallows"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

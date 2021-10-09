@@ -1,15 +1,14 @@
-package bank.hackaton.ui.adapter
+package bank.hackathon.ui.adapter
 
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import bank.hackaton.R
-import bank.hackaton.model.CaseModel
-import com.squareup.picasso.Picasso
+import bank.hackathon.R
+import bank.hackathon.model.CaseModel
+
 
 class CardStackAdapter(
     private var cases: List<CaseModel> = emptyList()
@@ -24,13 +23,7 @@ class CardStackAdapter(
         val case = cases[position]
         holder.name.text = case.name
         holder.description.text = case.description
-
-        Picasso.get()
-            .load(case.imageUrl)
-            .noPlaceholder()
-            .fit()
-            .centerCrop()
-            .into(holder.image)
+        holder.description.setMovementMethod(ScrollingMovementMethod())
     }
 
     override fun getItemCount(): Int {
@@ -49,6 +42,6 @@ class CardStackAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name: TextView = view.findViewById(R.id.textview_name)
         var description: TextView = view.findViewById(R.id.textview_description)
-        var image: ImageView = view.findViewById(R.id.imageview_case)
+//        var image: ImageView = view.findViewById(R.id.imageview_case)
     }
 }

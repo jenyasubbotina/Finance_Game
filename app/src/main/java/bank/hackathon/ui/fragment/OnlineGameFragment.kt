@@ -1,4 +1,4 @@
-package bank.hackaton.ui.fragment
+package bank.hackathon.ui.fragment
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -7,17 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.ViewGroup
-import android.view.animation.LinearInterpolator
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import bank.hackaton.R
-import bank.hackaton.model.CaseModel
-import bank.hackaton.ui.adapter.CardStackAdapter
-import bank.hackaton.utils.OnSwipeTouchListener
+import bank.hackathon.R
 import com.yuyakaido.android.cardstackview.*
-import java.lang.Exception
 
 
 class OnlineGameFragment : Fragment() {

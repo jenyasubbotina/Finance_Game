@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="bank.hackaton.ui.fragment.MainFragment"
+        android:name="bank.hackathon.ui.fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/onlineGameFragment"
-        android:name="bank.hackaton.ui.fragment.OnlineGameFragment"
+        android:name="bank.hackathon.ui.fragment.OnlineGameFragment"
         android:label="fragment_online_game"
         tools:layout="@layout/fragment_online_game" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/quizFragment"
-        android:name="bank.hackaton.ui.fragment.QuizFragment"
+        android:name="bank.hackathon.ui.fragment.QuizFragment"
         android:label="fragment_quiz"
         tools:layout="@layout/fragment_quiz" />
 

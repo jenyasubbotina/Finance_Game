@@ -1,4 +1,4 @@
-package bank.hackaton
+package bank.hackathon
 
 import org.junit.Test
 
