@@ -47,14 +47,38 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/register_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:minWidth="40dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontally"
         android:layout_marginBottom="40dp"
-        android:text="@string/register"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:text="@string/button_register"
+        app:layout_constraintBottom_toTopOf="@id/swipe_right" />
+
+    <com.google.android.material.textview.MaterialTextView
+        style = "@style/MaterialTextStyle"
+        android:id="@+id/swipe_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/picture_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity = "center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:text="@string/swipe_right_to_login" />
+    <ImageView
+        android:id="@+id/picture_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:minWidth="50dp"
+        android:minHeight="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/primary" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
