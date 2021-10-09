@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import bank.hackaton.R
+import bank.hackaton.UI.LoginFragment
+import bank.hackaton.UI.RegisterFragment
 
 
 private const val TOTAL = 2
