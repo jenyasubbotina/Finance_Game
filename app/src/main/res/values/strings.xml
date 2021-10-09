@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Finance Game</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gallows_online"> Виселица онлайн </string>
+    <string name="crossword"> Кроссворд </string>
+    <string name="lets_play"> Давай поиграем! </string>
+</resources>

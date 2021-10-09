@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/onlineGameFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="bank.hackaton.ui.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_onlineGameFragment"
+            app:destination="@id/onlineGameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onlineGameFragment"
+        android:name="bank.hackaton.ui.fragment.OnlineGameFragment"
+        android:label="fragment_online_game"
+        tools:layout="@layout/fragment_online_game" />
+
+</navigation>
