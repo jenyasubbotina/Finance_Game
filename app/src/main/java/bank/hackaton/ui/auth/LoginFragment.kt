@@ -21,6 +21,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.internal.synchronized
 
 const val path = "table"
 
@@ -67,7 +68,6 @@ class LoginFragment : Fragment() {
                                 Log.e("firebase", "Error getting data", it)
                             }
                             Log.d("got name: ", personName)
-                            sp.edit().putString(PersistentStorage.NAME, personName).apply()
                             toMain()
                         } else {
 
