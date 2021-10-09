@@ -1,8 +1,10 @@
 package bank.hackaton.ui.auth
 
 import android.app.Activity
+import android.content.Context
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import bank.hackaton.R
+import bank.hackaton.ui.activity.PersistentStorage
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -40,6 +43,7 @@ class RegisterFragment : Fragment() {
     private lateinit var passwordText: TextInputEditText
     private lateinit var nameText: TextInputEditText
     private lateinit var db: DatabaseReference
+    private lateinit var sp: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,7 +55,7 @@ class RegisterFragment : Fragment() {
         registerButton.setOnClickListener {
             val name = loginText.text.toString()
             val password = passwordText.text.toString()
-            var personName = nameText.text.toString()
+            var personName = nameText.text.toString().trim()
             Log.d("login:", name)
             Log.d("password:", password)
             Log.d("name:", personName)
@@ -73,9 +77,10 @@ class RegisterFragment : Fragment() {
                             Log.d("Logged", "signInWithEmail:success")
                             val user = mAuth.currentUser
                             Log.d("email:", user!!.email.toString())
-                            db.child(name.replace(".", ""))
+                            db.child(path).child(name.replace(".", ""))
                                 .setValue(personName).addOnSuccessListener {
-                                    Log.d("success: ", "inserted")
+                                    Log.d("success: ", "inserted $personName")
+                                    sp.edit().putString(PersistentStorage.NAME, personName).apply()
                                 }.addOnFailureListener {
                                     Log.d("failed: ", it.message!!)
                                 }
@@ -107,7 +112,12 @@ class RegisterFragment : Fragment() {
         nameText = root.findViewById(R.id.name_person_login)
         db = Firebase.database.reference
         loginText = root.findViewById(R.id.username_login)
+        sp = requireContext().getSharedPreferences(
+            PersistentStorage.PERSISTENT_STORAGE_NAME,
+            Context.MODE_PRIVATE
+        )
     }
+
 
     private fun toMain() {
         val intent = Intent(context, bank.hackaton.ui.activity.MainActivity::class.java)

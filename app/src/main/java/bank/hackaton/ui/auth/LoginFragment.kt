@@ -1,7 +1,9 @@
 package bank.hackaton.ui.auth
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import bank.hackaton.R
 import bank.hackaton.ui.activity.MainActivity
+import bank.hackaton.ui.activity.PersistentStorage
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +29,7 @@ class LoginFragment : Fragment() {
     private lateinit var loginText: TextInputEditText
     private lateinit var passwordText: TextInputEditText
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var sp: SharedPreferences
     private lateinit var db: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +63,7 @@ class LoginFragment : Fragment() {
                             db.child(path).child(name.replace(".", "")).get().addOnSuccessListener {
                                 Log.i("firebase", "Got value ${it.value}")
                                 personName = it.value.toString()
+                                sp.edit().putString(PersistentStorage.NAME, personName).apply()
                             }.addOnFailureListener {
                                 Log.e("firebase", "Error getting data", it)
                             }
@@ -92,6 +97,10 @@ class LoginFragment : Fragment() {
         loginButton = root.findViewById(R.id.login_button)
         passwordText = root.findViewById(R.id.password_login)
         loginText = root.findViewById(R.id.username_login)
+        sp = requireContext().getSharedPreferences(
+            PersistentStorage.PERSISTENT_STORAGE_NAME,
+            Context.MODE_PRIVATE
+        )
     }
 
 }

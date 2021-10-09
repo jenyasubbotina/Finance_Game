@@ -75,4 +75,6 @@ dependencies {
     implementation 'jp.wasabeef:picasso-transformations:2.4.0'
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
+
+
 }
