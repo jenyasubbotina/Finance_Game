@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Finance Game</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="gallows_online"> Виселица онлайн </string>
     <string name="crossword"> Кроссворд </string>
     <string name="lets_play"> Давай поиграем! </string>
     <string name="what_to_do"> Чем займемся, %1$s?</string>
     <string name="games"> Игры </string>
+    <string name="statistic"> Статистика </string>
+    <string name="quest"> Квест </string>
+    <string name="swipe"> Свайпни вправо, если считаешь, что утверждение верно!</string>
 </resources>

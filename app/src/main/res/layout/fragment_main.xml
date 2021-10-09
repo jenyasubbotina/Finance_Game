@@ -21,11 +21,11 @@
         android:id="@+id/cardview_games"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/l_margin"
         android:layout_marginTop="@dimen/xl_margin"
         android:visibility="visible"
         app:cardBackgroundColor="@color/primary"
         app:cardCornerRadius="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_welcome">
 
@@ -38,20 +38,20 @@
                 android:id="@+id/textview_games"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/l_margin"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/games"
                 android:textColor="@color/white"
                 android:textSize="@dimen/h1"
-                android:layout_marginTop="@dimen/l_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="@font/roboto_medium"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageview_crossword"
                 android:layout_width="@dimen/imageview_game_icon"
                 android:layout_height="@dimen/imageview_game_icon"
-                android:layout_marginTop="@dimen/m_margin"
+                android:layout_marginTop="@dimen/xl_margin"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/crossword_main_icon"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,25 +61,99 @@
                 android:id="@+id/imageview_quest"
                 android:layout_width="@dimen/imageview_game_icon"
                 android:layout_height="@dimen/imageview_game_icon"
+                android:layout_marginStart="@dimen/m_margin"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/quest_main_icon"
-                android:layout_marginStart="@dimen/m_margin"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/imageview_crossword"
-                app:layout_constraintStart_toEndOf="@id/imageview_crossword"/>
+                app:layout_constraintStart_toEndOf="@id/imageview_crossword"
+                app:layout_constraintTop_toTopOf="@id/imageview_crossword" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageview_gallows"
                 android:layout_width="@dimen/imageview_game_icon"
                 android:layout_height="@dimen/imageview_game_icon"
-                android:layout_marginTop="@dimen/m_margin"
+                android:layout_marginTop="@dimen/xl_margin"
+                android:layout_marginBottom="@dimen/l_margin"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/gallows_main_icon"
-                android:layout_marginBottom="@dimen/l_margin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/imageview_crossword"
                 app:layout_constraintEnd_toEndOf="@id/imageview_quest"
+                app:layout_constraintStart_toStartOf="@id/imageview_crossword"
                 app:layout_constraintTop_toBottomOf="@id/imageview_crossword" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/imageview_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xxl_margin"
+                android:layout_marginBottom="@dimen/l_margin"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/app_name"
+                android:src="@android:drawable/ic_menu_help"
+                app:fabCustomSize="@dimen/xxl_margin"
+                app:layout_constraintEnd_toEndOf="@id/imageview_quest"
+                app:layout_constraintStart_toStartOf="@id/imageview_crossword"
+                app:layout_constraintTop_toBottomOf="@id/imageview_gallows" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xl_margin"
+        android:layout_marginTop="@dimen/xl_margin"
+        android:visibility="visible"
+        app:cardBackgroundColor="@color/light_blue"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardview_games"
+        app:layout_constraintTop_toTopOf="@id/cardview_games">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/s_margin">
+
+            <TextView
+                android:id="@+id/textview_statistic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/s_margin"
+                android:layout_marginTop="@dimen/l_margin"
+                android:layout_marginBottom="@dimen/m_margin"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/statistic"
+                android:textColor="@color/black"
+                android:textSize="@dimen/h2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageview_analyse"
+                android:layout_width="@dimen/imageview_game_icon"
+                android:layout_height="@dimen/imageview_game_icon"
+                android:layout_marginTop="@dimen/xl_margin"
+                android:layout_marginBottom="@dimen/m_margin"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/crossword_main_icon"
+                app:layout_constraintBottom_toTopOf="@id/imageview_dashboard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageview_dashboard"
+                android:layout_width="@dimen/imageview_game_icon"
+                android:layout_height="@dimen/imageview_game_icon"
+                android:layout_marginBottom="@dimen/s_margin"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/quest_main_icon"
+                app:layout_constraintBottom_toTopOf="@id/textview_statistic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

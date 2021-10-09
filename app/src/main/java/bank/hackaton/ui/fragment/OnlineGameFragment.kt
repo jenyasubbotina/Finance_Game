@@ -19,6 +19,7 @@ class OnlineGameFragment : Fragment() {
 
     private lateinit var gallowsCardView: CardView
     private lateinit var crosswordCardView: CardView
+    private lateinit var quizCardView: CardView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +28,7 @@ class OnlineGameFragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_online_game, container, false)
         gallowsCardView = v.findViewById(R.id.cardview_gallow)
         crosswordCardView = v.findViewById(R.id.cardview_crossword)
+        quizCardView = v.findViewById(R.id.cardview_quest)
 
         v.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             @SuppressLint("ClickableViewAccessibility")
@@ -47,12 +49,19 @@ class OnlineGameFragment : Fragment() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     circularRevealAnimation(crosswordCardView)
                 }, 600)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    circularRevealAnimation(quizCardView)
+                }, 1200)
 
                 gallowsCardView.setOnClickListener {
 
                 }
 
                 crosswordCardView.setOnClickListener {
+
+                }
+
+                quizCardView.setOnClickListener {
 
                 }
             }
@@ -70,28 +79,4 @@ class OnlineGameFragment : Fragment() {
         view.visibility = View.VISIBLE
         anim.start()
     }
-
-//    class LoadAnimation(view1: View, view2: View) : AsyncTask<Void, Void, String>() {
-//        val v1: View
-//        val v2: View
-//
-//        init {
-//            this.v1 = view1
-//            this.v2 = view2
-//        }
-//
-//        override fun doInBackground(vararg params: Void?): String {
-//            return ""
-//        }
-//
-//        override fun onPreExecute() {
-//            super.onPreExecute()
-//            circularRevealAnimation(view = v1)
-//        }
-//
-//        override fun onPostExecute(result: String?) {
-//            super.onPostExecute(result)
-//            circularRevealAnimation(v2)
-//        }
-//    }
 }
