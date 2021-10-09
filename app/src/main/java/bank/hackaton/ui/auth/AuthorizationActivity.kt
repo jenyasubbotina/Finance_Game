@@ -1,6 +1,7 @@
 package bank.hackaton.ui.auth
 
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -19,6 +20,7 @@ class AuthorizationActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authorization)
         viewPager2 = findViewById(R.id.pager)
+        window.statusBarColor = Color.WHITE
         val pagerAdapter = ScreenSlidePagerAdapter(this)
         viewPager2.adapter = pagerAdapter
     }
