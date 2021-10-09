@@ -19,6 +19,15 @@
         android:id="@+id/onlineGameFragment"
         android:name="bank.hackaton.ui.fragment.OnlineGameFragment"
         android:label="fragment_online_game"
-        tools:layout="@layout/fragment_online_game" />
+        tools:layout="@layout/fragment_online_game" >
+        <action
+            android:id="@+id/action_onlineGameFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="bank.hackaton.ui.fragment.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" />
 
 </navigation>

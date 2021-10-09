@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/m_margin"
-    tools:context=".ui.fragment.MainFragment">
+    tools:context=".ui.fragment.MainFragment"
+    android:animateLayoutChanges="true">
 
     <TextView
         android:id="@+id/textview_welcome"
@@ -51,6 +52,7 @@
                 android:id="@+id/imageview_crossword"
                 android:layout_width="@dimen/imageview_game_icon"
                 android:layout_height="@dimen/imageview_game_icon"
+                android:visibility="invisible"
                 android:layout_marginTop="@dimen/xl_margin"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/crossword_main_icon"
@@ -62,6 +64,7 @@
                 android:layout_width="@dimen/imageview_game_icon"
                 android:layout_height="@dimen/imageview_game_icon"
                 android:layout_marginStart="@dimen/m_margin"
+                android:visibility="invisible"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/quest_main_icon"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +76,7 @@
                 android:layout_width="@dimen/imageview_game_icon"
                 android:layout_height="@dimen/imageview_game_icon"
                 android:layout_marginTop="@dimen/xl_margin"
+                android:visibility="invisible"
                 android:layout_marginBottom="@dimen/l_margin"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/gallows_main_icon"

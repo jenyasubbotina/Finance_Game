@@ -7,11 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import bank.hackaton.R
+import bank.hackaton.model.CaseModel
+import bank.hackaton.ui.adapter.CardStackAdapter
 import bank.hackaton.utils.OnSwipeTouchListener
+import com.yuyakaido.android.cardstackview.*
 import java.lang.Exception
 
 
@@ -62,10 +67,12 @@ class OnlineGameFragment : Fragment() {
                 }
 
                 quizCardView.setOnClickListener {
-
+                    NavHostFragment.findNavController(this@OnlineGameFragment).navigate(R.id.quizFragment)
                 }
             }
         })
+
+
         return v
     }
 

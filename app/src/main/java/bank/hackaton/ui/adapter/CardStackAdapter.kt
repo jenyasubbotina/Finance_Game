@@ -8,44 +8,47 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import bank.hackaton.R
+import bank.hackaton.model.CaseModel
 import com.squareup.picasso.Picasso
 
-//class CardStackAdapter(
-//    //private var spots: List<Spot> = emptyList()
-//) : RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val inflater = LayoutInflater.from(parent.context)
-//        return ViewHolder(inflater.inflate(R.layout.case_item_layout, parent, false))
-//    }
-//
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//       // val spot = spots[position]
-//        holder.name.text = "${spot.id}. ${spot.name}"
-//
-////        Picasso.get()
-////            .load(foodAds[position].image)
-////            .noPlaceholder()
-////            .fit()
-////            .centerCrop()
-////            .into(holder.foodImage)
-//    }
-//
-//    override fun getItemCount(): Int {
-//     //   return spots.size
-//    }
-//
-//    fun setSpots(spots: List<Spot>) {
-//        this.spots = spots
-//    }
-//
-//    fun getSpots(): List<Spot> {
-//        return spots
-//    }
+class CardStackAdapter(
+    private var cases: List<CaseModel> = emptyList()
+) : RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
 
-//    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//        val name: TextView = view.findViewById(R.id.textview_name)
-//        var description: TextView = view.findViewById(R.id.textview_description)
-//        var image: ImageView = view.findViewById(R.id.imageview_case)
-//    }
-//}
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return ViewHolder(inflater.inflate(R.layout.case_item_layout, parent, false))
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val case = cases[position]
+        holder.name.text = case.name
+        holder.description.text = case.description
+
+        Picasso.get()
+            .load(case.imageUrl)
+            .noPlaceholder()
+            .fit()
+            .centerCrop()
+            .into(holder.image)
+    }
+
+    override fun getItemCount(): Int {
+        return cases.size
+    }
+
+    fun setCases(spots: List<CaseModel>) {
+        this.cases = spots
+        notifyDataSetChanged()
+    }
+
+    fun getCases(): List<CaseModel> {
+        return cases
+    }
+
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val name: TextView = view.findViewById(R.id.textview_name)
+        var description: TextView = view.findViewById(R.id.textview_description)
+        var image: ImageView = view.findViewById(R.id.imageview_case)
+    }
+}
