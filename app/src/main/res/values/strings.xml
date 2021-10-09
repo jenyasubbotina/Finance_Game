@@ -4,13 +4,21 @@
     <string name="gallows_online"> Виселица онлайн </string>
     <string name="crossword"> Кроссворд </string>
     <string name="lets_play"> Давай поиграем! </string>
-    <string name="what_to_do"> Чем займемся, %1$s?</string>
+    <string name="what_to_do"> Чем займемся, ?</string>
     <string name="games"> Игры </string>
     <string name="statistic"> Статистика </string>
     <string name="quest"> Квест </string>
     <string name="swipe"> Свайпни вправо, если считаешь, что утверждение верно!</string>
-    <string name="login">Login</string>
-    <string name="enter_login_here">Enter your login here</string>
-    <string name="enter_your_password_here">enter your password here</string>
-    <string name="register">register</string>
+    <string name="login">Авторизация</string>
+    <string name="enter_login_here">Почта</string>
+    <string name="enter_your_password_here">Пароль</string>
+    <string name="enter_your_name_here">Имя (необязательно)</string>
+    <string name="register">Регистрация</string>
+    <string name="swipe_left_to_register">Проведите влево, чтобы зарегистрироваться</string>
+    <string name="swipe_right_to_login">Проведите вправо, чтобы войти</string>
+    <string name="button_register">Зарегистрироваться</string>
+    <string name="button_login">Войти</string>
+    <string name="error_login">Вы не ввели вашу почту</string>
+    <string name="error_password">Вы не ввели ваш пароль</string>
+    <string name="authetication_failed">Авторизация не удалась, попробуйте ещё раз</string>
 </resources>

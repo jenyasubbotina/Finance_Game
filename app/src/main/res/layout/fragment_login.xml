@@ -23,7 +23,9 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/username_login"
         style = "@style/MaterialTextStyle"
+        android:background="@drawable/switched_rectangle"
         android:layout_width="0dp"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:hint="@string/enter_login_here"
@@ -39,8 +41,10 @@
         style="@style/MaterialTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:layout_marginTop="35dp"
         android:fontFamily="sans-serif"
+        android:background="@drawable/switched_rectangle"
         android:hint="@string/enter_your_password_here"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,13 +53,40 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:minWidth="40dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontally"
         android:layout_marginBottom="40dp"
-        android:text="@string/login"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:text="@string/button_login"
+        app:layout_constraintBottom_toTopOf="@id/swipe_left" />
+
+    <com.google.android.material.textview.MaterialTextView
+        style = "@style/MaterialTextStyle"
+        android:id="@+id/swipe_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="@id/picture_right"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="15dp"
+        android:text="@string/swipe_left_to_register" />
+    <ImageView
+        android:id="@+id/picture_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:minWidth="50dp"
+        android:minHeight="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/primary"
+        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
