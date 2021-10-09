@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "693726160162",
+    "project_id": "finance-game-8791f",
+    "storage_bucket": "finance-game-8791f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693726160162:android:6f68d13cd99e2df037717b",
+        "android_client_info": {
+          "package_name": "bank.hackaton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693726160162-t4bqle1o6hrvtkchvvv828qr6c6v6ph7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1loXj9DuL6hTEuZc4LCfaBCwcAFn6DT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693726160162-t4bqle1o6hrvtkchvvv828qr6c6v6ph7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

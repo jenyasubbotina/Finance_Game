@@ -9,4 +9,8 @@
     <string name="statistic"> Статистика </string>
     <string name="quest"> Квест </string>
     <string name="swipe"> Свайпни вправо, если считаешь, что утверждение верно!</string>
+    <string name="login">Login</string>
+    <string name="enter_login_here">Enter your login here</string>
+    <string name="enter_your_password_here">enter your password here</string>
+    <string name="register">register</string>
 </resources>
